@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Animal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 
     @Column(nullable = false)
     private Long Id;

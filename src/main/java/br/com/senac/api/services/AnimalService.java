@@ -20,6 +20,7 @@ public class AnimalService {
     }
 
     public Animal criar (AnimalRequestDtos animal){
+        this.validarAnimal(animal);
 
         Animal animalSaida = new Animal();
         animalSaida.setNome(animal.getNome());
@@ -61,5 +62,19 @@ public class AnimalService {
         }
 
         throw new RuntimeException("Animal não encontrado!");
+    }
+
+    private void validarAnimal (AnimalRequestDtos animal) {
+        if (animal.getNome() == null || animal.getNome().isBlank()){
+            throw new RuntimeException("Campo nome é obrigatório!");
+        }
+
+        if (animal.getEspecie() == null || animal.getEspecie().isBlank()) {
+            throw new RuntimeException("Campo Espécie é obrigatório!");
+        }
+
+        if (animal.getPeso() == null) {
+            throw new RuntimeException("Campo peso é Obrigatório");
+        }
     }
 }
