@@ -73,5 +73,4 @@ public class Animal {
     public void setIdade(String idade) {
         this.idade = idade;
     }
-
 }
